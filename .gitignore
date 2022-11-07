@@ -13,3 +13,4 @@ composer.phar
 /zb_install
 .htaccess
 .user.ini
+zb_users/cache/*
