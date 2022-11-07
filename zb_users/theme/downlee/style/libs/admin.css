@@ -1,0 +1,39 @@
+input, textarea {
+    -webkit-transition: border linear 0.1s, box-shadow linear 0.1s;
+    -moz-transition: border linear 0.1s, box-shadow linear 0.1s;
+    -o-transition: border linear 0.1s, box-shadow linear 0.1s;
+    transition: border linear 0.1s, box-shadow linear 0.1s;
+}
+#divEditRight .boxfloat {
+    position: relative;
+}
+input#inputype,
+input#alias{
+	margin-top: 5px;
+	padding: 0 10px;
+    width: 50%;
+    height: 33px;
+}
+.introbox {
+    width: 99%;
+    height: 57px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+.introbox .aliaslabel {
+    line-height: 35px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    background: #ddd;
+}
+#divMain2 .aliaslabel a {
+    color: #333;
+    display: block;
+}
+.introbox.aliascur,
+.introbox.cur {
+	height: auto;
+}

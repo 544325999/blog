@@ -1,0 +1,146 @@
+@charset "utf-8";
+
+.lvse{
+	text-indent: 0em !important;
+	color: #7da33c;
+	background: #ecf2d6 url('../images/wpgo_sc_notice.png') -1px -1px no-repeat;
+	border: 1px solid #aac66d;
+	overflow: hidden;
+	margin: 10px 0;
+	padding: 15px 15px 15px 35px;
+}
+.hongse{
+	text-indent: 0em !important;
+	color: #c66;
+	background: #ffecea url('../images/wpgo_sc_error.png') -1px -1px no-repeat;
+	border: 1px solid #ebb1b1;
+	overflow: hidden;
+	margin: 10px 0;
+	padding: 15px 15px 15px 35px;
+}
+.huangse{
+	text-indent: 0em !important;
+	color: #ad9948;
+	background: #fff4b9 url('../images/wpgo_sc_warn.png') -1px -1px no-repeat;
+	border: 1px solid #eac946;
+	overflow: hidden;
+	margin: 10px 0;
+	padding: 15px 15px 15px 35px;
+}
+.huise{
+	text-indent: 0em !important;
+	color: #777;
+	background: #eaeaea url('../images/wpgo_sc_tips.png') -1px -1px no-repeat;
+	border: 1px solid #ccc;
+	overflow: hidden;
+	margin: 10px 0;
+	padding: 15px 15px 15px 35px;
+}
+.lanse{
+	text-indent: 0em !important;
+	font-size: 16px;
+	font-weight: normal;
+	color: #FFF;
+	margin: 10px 0;
+	padding: 5px 10px;
+	background-color: #169FE6;
+	display: inline-block;
+}
+
+.putong{
+	text-indent: 0em !important;
+	margin: 10px 0;
+	padding: 10px 15px;
+	background: #FFF;
+	border: 1px solid #E3E3E3;
+	border-left: 3px solid #3DABCE;
+}
+.chunse{text-indent:0em !important;font-family: Î¢ÈíÑÅºÚ;padding: 15px 15px 15px 35px;margin: 20px 0px;border: 1px solid rgb(190, 31, 31);color: rgb(130, 11, 11);position: relative;font-size: 15px;line-height: 18px;white-space: normal;background: rgb(239, 206, 201);}
+p.more, hr {
+    display: block;
+    margin: 1em 0;
+    padding: 0;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #666;
+}
+/*.view h1,.view h2 {font-weight:bold;border-left:4px solid #4693e9;margin:10px 10px 15px 0px;padding:10px 0 10px 15px;background:#f5f5f5;}
+.view h3,.view h4,.view h5 {color:#555;font-weight:bold;border-left:4px solid #4693e9;margin:10px 10px 15px 0px;background:#f5f5f5;}
+.view h1 {font-size:20px;border-left: 4px solid #c11e22;}
+.view h2 {font-size:18px}
+.view h3 {font-size:16px;border-left:4px solid #ffae49;margin:10px 10px 15px 0px;padding:7px 0 6px 15px;}
+.view h4 {font-size:15px;border-left:4px solid #02aabb;margin:10px 10px 15px 0px;padding:5px 0 6px 15px;}
+.view h5 {font-size:14px;border-left:4px solid #4693e9;margin:10px 10px 15px 0px;padding:3px 0 3px 15px;font-weight: 500;}
+.view h6 {border-left: 4px solid #bbbbbb;font-weight: initial;padding: 3px 0 3px 15px;margin: 10px 10px 15px 0px;}
+*/
+.view h1, .view h2 {
+    font-size: 18px;
+    font-weight: bold;
+    border-left: 4px solid #4693e9;
+    margin: 10px 0px 15px 0px;
+    padding: 10px 0 10px 20px;
+    background: #f5f5f5;
+}
+.view h3 {
+    font-size: 16px;
+    border-left: 4px solid #ffae49;
+    margin: 15px 00px 20px 00px;
+    padding: 7px 0 6px 20px;
+    color: #555;
+    font-weight: bold;
+}
+.view h4 {
+    font-size: 15px;
+    border-left: 4px solid #02aabb;
+    padding: 5px 0 6px 20px;
+    margin: 10px 0px 15px 0px;
+}
+.view h5, .view h6 {
+    font-size: 14px;
+    margin: 10px 0px 12px 0px;
+    padding: 3px 0 3px 20px;
+    padding: 3px 0 3px 20px;
+    border-left: 4px solid #bbbbbb;
+    font-weight: initial;
+    margin-bottom: 7px;
+}
+
+p.more, hr {
+    display: block;
+    margin: 1em 0;
+    padding: 0;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #666;
+}
+.view p.weiyutime:first-child {
+    margin-top: 30px;
+}
+p.weiyutime {
+    list-style: none;
+    padding-left: 16px;
+    padding-bottom: 12px;
+    border-left: 2px solid #eee;
+    font-size: 15px;
+    font-size: 1.1em;
+    color: #666;
+    position: relative;
+    line-height: 155%;
+    margin: 0 0 0px 16px;
+}
+p.weiyutime span {color:#d11a1a;}
+p.weiyutime br {
+    line-height: 200%;
+}
+p.weiyutime:after {
+    position: absolute;
+    top: 2px;
+    left: -9px;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #4693e9;
+    border: 2px solid #a8ccf5;
+    box-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff;
+}

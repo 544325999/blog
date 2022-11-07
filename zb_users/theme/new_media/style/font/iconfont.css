@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2298079 */
+  src: url('iconfont.woff2?t=1644460869348') format('woff2'),
+       url('iconfont.woff?t=1644460869348') format('woff'),
+       url('iconfont.ttf?t=1644460869348') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-eye-display-fill:before {
+  content: "\e81a";
+}
+
+.icon-app:before {
+  content: "\e605";
+}
+
+.icon-edit:before {
+  content: "\e615";
+}
+
+.icon-left:before {
+  content: "\e87d";
+}
+
+.icon-right:before {
+  content: "\e600";
+}
+
+.icon-home:before {
+  content: "\e622";
+}
+
+.icon-calendar-fill:before {
+  content: "\e817";
+}
+
+.icon-crossborder-fill:before {
+  content: "\e818";
+}
+
+.icon-edit-fill:before {
+  content: "\e819";
+}
+
+.icon-message-fill:before {
+  content: "\e81e";
+}
+
+.icon-rocket-fill:before {
+  content: "\e820";
+}
+
+.icon-search-fill:before {
+  content: "\e821";
+}
+
+.icon-user-fill:before {
+  content: "\e823";
+}
+
+.icon-search:before {
+  content: "\e87c";
+}
+
+.icon-alarmclock-fill:before {
+  content: "\e816";
+}
+

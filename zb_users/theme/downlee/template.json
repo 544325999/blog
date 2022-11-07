@@ -1,0 +1,50 @@
+{
+    "id": "downlee",
+    "templates": [
+        {
+            "filename": "index",
+            "type": "index",
+            "name": "首页默认模板"
+        },
+				{
+            "filename": "catainfo",
+            "type": "list",
+            "name": "分类资讯模板"
+        },
+				{
+            "filename": "catalog",
+            "type": "list",
+            "name": "分类默认模板"
+        },
+				{
+            "filename": "catasell",
+            "type": "list",
+            "name": "分类商品模板"
+        },
+				{
+            "filename": "links",
+            "type": "page",
+            "name": "单页友联模板"
+        },
+				{
+            "filename": "sitemap",
+            "type": "page",
+            "name": "文章归档模板"
+        },
+				{
+            "filename": "tagslist",
+            "type": "page",
+            "name": "标签聚合单页"
+        },
+				{
+            "filename": "sale",
+            "type": "article",
+            "name": "文章商品模板"
+        },
+        {
+            "filename": "single",
+            "type": "single",
+            "name": "文章默认模板"
+        }
+    ]
+}
