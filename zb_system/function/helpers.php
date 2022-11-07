@@ -14,13 +14,18 @@ function getClient()
 function getData($msg, $offset = 1, $limit = 4)
 {
     $client = getClient();
-    $response = $client->get('index/index', [
-        'query' => [
-            'msg' => $msg,
-            'offset' => $offset,
-            'limit' => $limit
+    try {
+        $response = $client->get('index/index', [
+            'query' => [
+                'msg' => $msg,
+                'offset' => $offset,
+                'limit' => $limit
             ]
-    ]);
-    $body = (string) $response->getBody();
-    return json_decode($body, true);
+        ]);
+        $body = (string) $response->getBody();
+        return json_decode($body, true);
+    } catch (Exception $exception) {
+        return $exception->getMessage();
+    }
+
 }
