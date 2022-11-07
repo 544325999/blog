@@ -37,6 +37,7 @@ require ZBP_PATH . 'zb_system/function/c_system_function.php';
 require ZBP_PATH . 'zb_system/function/c_system_route.php';
 require ZBP_PATH . 'zb_system/function/c_system_event.php';
 require ZBP_PATH . 'zb_system/function/c_system_api.php';
+require ZBP_PATH . 'zb_system/function/helpers.php';
 
 /**
  * 指定加载类的目录并注册加载函数到系统
@@ -46,7 +47,7 @@ if (function_exists('RunTime_Begin')) {
 }
 $GLOBALS['autoload_class_dirs'] = array();
 if (function_exists('AddAutoloadClassDir')) {
-    AddAutoloadClassDir(ZBP_PATH . 'zb_system/function/lib'); 
+    AddAutoloadClassDir(ZBP_PATH . 'zb_system/function/lib');
 }
 spl_autoload_register('AutoloadClass');
 

@@ -30,6 +30,7 @@
  * @version
  */
 require 'zb_system/function/c_system_base.php';
+require 'vendor/autoload.php';
 
 $zbp->RedirectInstall();
 $zbp->Load();

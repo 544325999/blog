@@ -13,7 +13,9 @@
 		navcate($article->Category->ID);
 		global $html;
 		echo $html;
-		{/php}<i class="icon font-angle-right"></i><a href="{$article.Url}" rel="bookmark" title="正在阅读 {$article.Title}">正文</a>{/if}
+            $datas = getData($article.Title);
+
+            {/php}<i class="icon font-angle-right"></i><a href="{$article.Url}" rel="bookmark" title="正在阅读 {$article.Title}">正文</a>{/if}
 		</nav>
 		<div id="font-change" class="single-font fr">
 			<span id="font-dec"><a href="#" title="减小字体"><i class="icon font-minus-square-o"></i></a></span>
@@ -37,7 +39,7 @@
 			{$article.Content}
 		</div>
 		{if (isset($article.Metas.bdresurl) || ($article.Metas.lzresurl) ||($article.Metas.qtresurl))}
-		<h2 class="down-h2">资源下载</h2>		
+		<h2 class="down-h2">资源下载</h2>
 		<div id="gsxz" class="article-download">
 			<span class="article-tipss">资源下载</span>
 			<div class="download-up">
@@ -113,52 +115,23 @@
 {else}{if $zbp->Config('downlee')->xgtjadoff=="1" && strlen ( $zbp->Config('downlee')->xgtjad ) > 8}<div id="related-ad" class="mediad related-ad">{$zbp->Config('downlee')->xgtjad}</div>{/if}{/if}
 <div class="theme-box relates-thumb">
 	<div class="relates-theme">相关推荐</div>
-	<div class="relates-list clearfix">
-		{if strlen ( $article.Tag ) > 0 && $zbp->Config('downlee')->readapi=="3"}<!--同签同类-->{foreach GetList($zbp->Config('downlee')->readnum,$article.Category.ID,null,null,null,null,array('is_related'=>$article.ID)) as $related}
-		<div class="push-box-inner">
-			<a href="{$related.Url}" title="{$related.Title}" target="_blank">
-				<figure class="gr-thumbnail"><img src="{downlee_firstimg($related)}" alt="{$related.Title}"></figure>
-				<div class="push-b-title">
-					<h3 class="push-b-h3">{$related.Title}</h2>
-					<p class="push-b-footer"><span>{downlee_ViewNums($related)} 阅读{if !$article.IsLock && !$option['ZC_COMMENT_TURNOFF']} ，</span><span>{$related.CommNums} 评论{/if}</span></p>
-				</div>
-			</a>
-		</div>{/foreach}
-		{elseif strlen ( $article.Tag ) > 0 && $zbp->Config('downlee')->readapi=="1"}<!--相关标签-->{foreach GetList($zbp->Config('downlee')->readnum,null,null,null,null,null,array('is_related'=>$article.ID)) as $related}
-		<div class="push-box-inner">
-			<a href="{$related.Url}" title="{$related.Title}" target="_blank">
-				<figure class="gr-thumbnail"><img src="{downlee_firstimg($related)}" alt="{$related.Title}"></figure>
-				<div class="push-b-title">
-					<h3 class="push-b-h3">{$related.Title}</h2>
-					<p class="push-b-footer"><span>{downlee_ViewNums($related)} 阅读{if !$article.IsLock && !$option['ZC_COMMENT_TURNOFF']} ，</span><span>{$related.CommNums} 评论{/if}</span></p>
-				</div>
-			</a>
-		</div>{/foreach}
-		{elseif $zbp->Config('downlee')->readapi=="2"}<!--相关分类-->{foreach GetList($zbp->Config('downlee')->readnum,$article.Category.ID,null,null,null,null,array('has_subcate'=>true)) as $related}
-		<div class="push-box-inner">
-			<a href="{$related.Url}" title="{$related.Title}" target="_blank">
-				<figure class="gr-thumbnail"><img src="{downlee_firstimg($related)}" alt="{$related.Title}"></figure>
-				<div class="push-b-title">
-					<h3 class="push-b-h3">{$related.Title}</h2>
-					<p class="push-b-footer"><span>{downlee_ViewNums($related)} 阅读{if !$article.IsLock && !$option['ZC_COMMENT_TURNOFF']} ，</span><span>{$related.CommNums} 评论{/if}</span></p>
-				</div>
-			</a>
-		</div>{/foreach}
-		{else}{foreach GetList($zbp->Config('downlee')->readnum) as $newlist}
-		<div class="push-box-inner">
-			<a href="{$newlist.Url}" title="{$newlist.Title}" target="_blank">
-				<figure class="gr-thumbnail"><img src="{downlee_firstimg($newlist)}" alt="{$newlist.Title}"></figure>
-				<div class="push-b-title">
-					<h3 class="push-b-h3">{$newlist.Title}</h2>
-					<p class="push-b-footer"><span>{downlee_ViewNums($newlist)} 阅读{if !$article.IsLock && !$option['ZC_COMMENT_TURNOFF']} ，</span><span>{$newlist.CommNums} 评论{/if}</span></p>
-				</div>
-			</a>
-		</div>{/foreach}{/if}
-	</div>
+    <div class="relates-list clearfix">
+        {foreach $datas['data'] as $data}
+            <div class="push-box-inner">
+                <!--            <a href="{$newlist.Url}" title="{$newlist.Title}" target="_blank">-->
+                <!--                <figure class="gr-thumbnail"><img src="{downlee_firstimg($newlist)}" alt="{$newlist.Title}"></figure>-->
+                <div class="push-b-title">
+                    <h3 class="push-b-h3">{$data['log_Title']}</h2>
+                        <!--                        <p class="push-b-footer"><span>{downlee_ViewNums($newlist)} 阅读{if !$article.IsLock && !$option['ZC_COMMENT_TURNOFF']} ，</span><span>{$newlist.CommNums} 评论{/if}</span></p>-->
+                </div>
+                </a>
+            </div>
+        {/foreach}
+    </div>
 </div>
 {if downlee_is_mobile()}{if $zbp->Config('downlee')->commentadoff=="1" && strlen ( $zbp->Config('downlee')->commentadyd ) > 8}<div id="comment-ad" class="mediad comment-ad">{$zbp->Config('downlee')->commentadyd}</div>{/if}
 {else}{if $zbp->Config('downlee')->commentadoff=="1" && strlen ( $zbp->Config('downlee')->commentad ) > 8}<div id="comment-ad" class="mediad comment-ad">{$zbp->Config('downlee')->commentad}</div>{/if}{/if}
-{if !$article.IsLock}<section id="comments" class="theme-box">  
+{if !$article.IsLock}<section id="comments" class="theme-box">
   {template:comments}
   <span class="icon icon_comment" title="comment"></span>
 </section>{/if}
