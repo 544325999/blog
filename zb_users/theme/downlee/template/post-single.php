@@ -120,7 +120,7 @@
         {foreach $datas['data'] as $data}
             <div class="push-box-inner">
                             <a href="{$data['log_ID']}.html" title="{$data['log_Title']}" target="_blank">
-                <!--                <figure class="gr-thumbnail"><img src="{downlee_firstimg($newlist)}" alt="{$newlist.Title}"></figure>-->
+                                <figure class="gr-thumbnail"><img src="{downlee_firstimg($data)}" alt="{$data['log_Title']}"></figure>
                 <div class="push-b-title">
                     <h3 class="push-b-h3">{$data['log_Title']}</h2>
                         <!--                        <p class="push-b-footer"><span>{downlee_ViewNums($newlist)} 阅读{if !$article.IsLock && !$option['ZC_COMMENT_TURNOFF']} ，</span><span>{$newlist.CommNums} 评论{/if}</span></p>-->
