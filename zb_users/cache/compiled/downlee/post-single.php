@@ -116,9 +116,10 @@
 <div class="theme-box relates-thumb">
 	<div class="relates-theme">相关推荐</div>
     <div class="relates-list clearfix">
+        <?php if (isset($datas['data']) && $datas['data']) { ?>
         <?php  foreach ( $datas['data'] as $data) { ?>
             <div class="push-box-inner">
-                <!--            <a href="<?php  echo $newlist->Url;  ?>" title="<?php  echo $newlist->Title;  ?>" target="_blank">-->
+                            <a href="<?php  echo $data['log_ID'];  ?>.html" title="<?php  echo $data['log_Title'];  ?>" target="_blank">
                 <!--                <figure class="gr-thumbnail"><img src="<?php  echo downlee_firstimg($newlist);  ?>" alt="<?php  echo $newlist->Title;  ?>"></figure>-->
                 <div class="push-b-title">
                     <h3 class="push-b-h3"><?php  echo $data['log_Title'];  ?></h2>
@@ -127,6 +128,7 @@
                 </a>
             </div>
         <?php }   ?>
+        <?php } ?>
     </div>
 </div>
 <?php if (downlee_is_mobile()) { ?><?php if ($zbp->Config('downlee')->commentadoff=="1" && strlen ( $zbp->Config('downlee')->commentadyd ) > 8) { ?><div id="comment-ad" class="mediad comment-ad"><?php  echo $zbp->Config('downlee')->commentadyd;  ?></div><?php } ?>

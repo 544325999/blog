@@ -119,7 +119,7 @@
         {if isset($datas['data']) && $datas['data']}
         {foreach $datas['data'] as $data}
             <div class="push-box-inner">
-                <!--            <a href="{$newlist.Url}" title="{$newlist.Title}" target="_blank">-->
+                            <a href="{$data['log_ID']}.html" title="{$data['log_Title']}" target="_blank">
                 <!--                <figure class="gr-thumbnail"><img src="{downlee_firstimg($newlist)}" alt="{$newlist.Title}"></figure>-->
                 <div class="push-b-title">
                     <h3 class="push-b-h3">{$data['log_Title']}</h2>
