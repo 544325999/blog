@@ -13,7 +13,7 @@
 		navcate($article->Category->ID);
 		global $html;
 		echo $html;
-            $datas = getData($article->Title);
+            $datas = getData($article->Title,0,15);
 
             {/php}<i class="icon font-angle-right"></i><a href="{$article.Url}" rel="bookmark" title="正在阅读 {$article.Title}">正文</a>{/if}
 		</nav>
