@@ -6,7 +6,7 @@ if (!defined('ZBP_PATH')) {
 function getClient()
 {
     return new \GuzzleHttp\Client([
-        'base_uri' => 'http://211.149.232.123:8787',
+        'base_uri' => $_ENV['SERVICE_API'],
         'headers' => [],
         ]);
 }
