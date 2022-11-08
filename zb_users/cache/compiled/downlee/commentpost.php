@@ -34,4 +34,4 @@
 		</div><?php } ?>
 	</div>
 	</form>
-</div><?php $footer .='<script src="http://www.ydbaike.cn/zb_users/theme/downlee/script/qqinfo.js"></script>' ?>
+</div><?php $footer .='<script src="http://zbapp.com/zb_users/theme/downlee/script/qqinfo.js"></script>' ?>

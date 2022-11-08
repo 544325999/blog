@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * 系统初始化等相关操作.
  */
@@ -24,6 +25,9 @@ defined('ZBP_SAFEMODE') || define('ZBP_SAFEMODE', false);
 if (ZBP_OBSTART) {
     ob_start();
 }
+require ZBP_PATH . 'vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(ZBP_PATH);
+$dotenv->load();
 
 /**
  * 加载系统基础函数.

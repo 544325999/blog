@@ -13,7 +13,9 @@
 		navcate($article->Category->ID);
 		global $html;
 		echo $html;
-		 ?><i class="icon font-angle-right"></i><a href="<?php  echo $article->Url;  ?>" rel="bookmark" title="正在阅读 <?php  echo $article->Title;  ?>">正文</a><?php } ?>
+            $datas = getData($article->Title);
+
+             ?><i class="icon font-angle-right"></i><a href="<?php  echo $article->Url;  ?>" rel="bookmark" title="正在阅读 <?php  echo $article->Title;  ?>">正文</a><?php } ?>
 		</nav>
 		<div id="font-change" class="single-font fr">
 			<span id="font-dec"><a href="#" title="减小字体"><i class="icon font-minus-square-o"></i></a></span>
@@ -37,7 +39,7 @@
 			<?php  echo $article->Content;  ?>
 		</div>
 		<?php if ((isset($article->Metas->bdresurl) || ($article->Metas->lzresurl) ||($article->Metas->qtresurl))) { ?>
-		<h2 class="down-h2">资源下载</h2>		
+		<h2 class="down-h2">资源下载</h2>
 		<div id="gsxz" class="article-download">
 			<span class="article-tipss">资源下载</span>
 			<div class="download-up">
@@ -113,52 +115,23 @@
 <?php }else{  ?><?php if ($zbp->Config('downlee')->xgtjadoff=="1" && strlen ( $zbp->Config('downlee')->xgtjad ) > 8) { ?><div id="related-ad" class="mediad related-ad"><?php  echo $zbp->Config('downlee')->xgtjad;  ?></div><?php } ?><?php } ?>
 <div class="theme-box relates-thumb">
 	<div class="relates-theme">相关推荐</div>
-	<div class="relates-list clearfix">
-		<?php if (strlen ( $article->Tag ) > 0 && $zbp->Config('downlee')->readapi=="3") { ?><!--同签同类--><?php  foreach ( GetList($zbp->Config('downlee')->readnum,$article->Category->ID,null,null,null,null,array('is_related'=>$article->ID)) as $related) { ?>
-		<div class="push-box-inner">
-			<a href="<?php  echo $related->Url;  ?>" title="<?php  echo $related->Title;  ?>" target="_blank">
-				<figure class="gr-thumbnail"><img src="<?php  echo downlee_firstimg($related);  ?>" alt="<?php  echo $related->Title;  ?>"></figure>
-				<div class="push-b-title">
-					<h3 class="push-b-h3"><?php  echo $related->Title;  ?></h2>
-					<p class="push-b-footer"><span><?php  echo downlee_ViewNums($related);  ?> 阅读<?php if (!$article->IsLock && !$option['ZC_COMMENT_TURNOFF']) { ?> ，</span><span><?php  echo $related->CommNums;  ?> 评论<?php } ?></span></p>
-				</div>
-			</a>
-		</div><?php }   ?>
-		<?php }elseif(strlen ( $article->Tag ) > 0 && $zbp->Config('downlee')->readapi=="1") {  ?><!--相关标签--><?php  foreach ( GetList($zbp->Config('downlee')->readnum,null,null,null,null,null,array('is_related'=>$article->ID)) as $related) { ?>
-		<div class="push-box-inner">
-			<a href="<?php  echo $related->Url;  ?>" title="<?php  echo $related->Title;  ?>" target="_blank">
-				<figure class="gr-thumbnail"><img src="<?php  echo downlee_firstimg($related);  ?>" alt="<?php  echo $related->Title;  ?>"></figure>
-				<div class="push-b-title">
-					<h3 class="push-b-h3"><?php  echo $related->Title;  ?></h2>
-					<p class="push-b-footer"><span><?php  echo downlee_ViewNums($related);  ?> 阅读<?php if (!$article->IsLock && !$option['ZC_COMMENT_TURNOFF']) { ?> ，</span><span><?php  echo $related->CommNums;  ?> 评论<?php } ?></span></p>
-				</div>
-			</a>
-		</div><?php }   ?>
-		<?php }elseif($zbp->Config('downlee')->readapi=="2") {  ?><!--相关分类--><?php  foreach ( GetList($zbp->Config('downlee')->readnum,$article->Category->ID,null,null,null,null,array('has_subcate'=>true)) as $related) { ?>
-		<div class="push-box-inner">
-			<a href="<?php  echo $related->Url;  ?>" title="<?php  echo $related->Title;  ?>" target="_blank">
-				<figure class="gr-thumbnail"><img src="<?php  echo downlee_firstimg($related);  ?>" alt="<?php  echo $related->Title;  ?>"></figure>
-				<div class="push-b-title">
-					<h3 class="push-b-h3"><?php  echo $related->Title;  ?></h2>
-					<p class="push-b-footer"><span><?php  echo downlee_ViewNums($related);  ?> 阅读<?php if (!$article->IsLock && !$option['ZC_COMMENT_TURNOFF']) { ?> ，</span><span><?php  echo $related->CommNums;  ?> 评论<?php } ?></span></p>
-				</div>
-			</a>
-		</div><?php }   ?>
-		<?php }else{  ?><?php  foreach ( GetList($zbp->Config('downlee')->readnum) as $newlist) { ?>
-		<div class="push-box-inner">
-			<a href="<?php  echo $newlist->Url;  ?>" title="<?php  echo $newlist->Title;  ?>" target="_blank">
-				<figure class="gr-thumbnail"><img src="<?php  echo downlee_firstimg($newlist);  ?>" alt="<?php  echo $newlist->Title;  ?>"></figure>
-				<div class="push-b-title">
-					<h3 class="push-b-h3"><?php  echo $newlist->Title;  ?></h2>
-					<p class="push-b-footer"><span><?php  echo downlee_ViewNums($newlist);  ?> 阅读<?php if (!$article->IsLock && !$option['ZC_COMMENT_TURNOFF']) { ?> ，</span><span><?php  echo $newlist->CommNums;  ?> 评论<?php } ?></span></p>
-				</div>
-			</a>
-		</div><?php }   ?><?php } ?>
-	</div>
+    <div class="relates-list clearfix">
+        <?php  foreach ( $datas['data'] as $data) { ?>
+            <div class="push-box-inner">
+                <!--            <a href="<?php  echo $newlist->Url;  ?>" title="<?php  echo $newlist->Title;  ?>" target="_blank">-->
+                <!--                <figure class="gr-thumbnail"><img src="<?php  echo downlee_firstimg($newlist);  ?>" alt="<?php  echo $newlist->Title;  ?>"></figure>-->
+                <div class="push-b-title">
+                    <h3 class="push-b-h3"><?php  echo $data['log_Title'];  ?></h2>
+                        <!--                        <p class="push-b-footer"><span><?php  echo downlee_ViewNums($newlist);  ?> 阅读<?php if (!$article->IsLock && !$option['ZC_COMMENT_TURNOFF']) { ?> ，</span><span><?php  echo $newlist->CommNums;  ?> 评论<?php } ?></span></p>-->
+                </div>
+                </a>
+            </div>
+        <?php }   ?>
+    </div>
 </div>
 <?php if (downlee_is_mobile()) { ?><?php if ($zbp->Config('downlee')->commentadoff=="1" && strlen ( $zbp->Config('downlee')->commentadyd ) > 8) { ?><div id="comment-ad" class="mediad comment-ad"><?php  echo $zbp->Config('downlee')->commentadyd;  ?></div><?php } ?>
 <?php }else{  ?><?php if ($zbp->Config('downlee')->commentadoff=="1" && strlen ( $zbp->Config('downlee')->commentad ) > 8) { ?><div id="comment-ad" class="mediad comment-ad"><?php  echo $zbp->Config('downlee')->commentad;  ?></div><?php } ?><?php } ?>
-<?php if (!$article->IsLock) { ?><section id="comments" class="theme-box">  
+<?php if (!$article->IsLock) { ?><section id="comments" class="theme-box">
   <?php  include $this->GetTemplate('comments');  ?>
   <span class="icon icon_comment" title="comment"></span>
 </section><?php } ?>

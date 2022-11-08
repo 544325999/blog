@@ -1,4 +1,6 @@
 <?php
+//var_dump($_ENV);exit;
+
 return array (
   'ZC_DATABASE_TYPE' => 'mysqli',
   'ZC_SQLITE_NAME' => '',
