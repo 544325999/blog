@@ -116,6 +116,7 @@
 <div class="theme-box relates-thumb">
 	<div class="relates-theme">相关推荐</div>
     <div class="relates-list clearfix">
+        {if isset($datas['data']) && $datas['data']}
         {foreach $datas['data'] as $data}
             <div class="push-box-inner">
                 <!--            <a href="{$newlist.Url}" title="{$newlist.Title}" target="_blank">-->
@@ -127,6 +128,7 @@
                 </a>
             </div>
         {/foreach}
+        {/if}
     </div>
 </div>
 {if downlee_is_mobile()}{if $zbp->Config('downlee')->commentadoff=="1" && strlen ( $zbp->Config('downlee')->commentadyd ) > 8}<div id="comment-ad" class="mediad comment-ad">{$zbp->Config('downlee')->commentadyd}</div>{/if}
