@@ -8,4 +8,4 @@
 /zb_install
 .htaccess
 .user.ini
-/zb_users/cache/compiled/*
+/zb_users/cache/compiled/downlee/*
