@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /zb_system/
+Disallow: /favicon.ico
+Disallow: /zb_users/
